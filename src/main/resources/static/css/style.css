@@ -1,0 +1,127 @@
+/* ==========================================================
+   PSP CBT — Design System
+   Colors pulled from the institution crest: crimson red,
+   gold/yellow, and charcoal, on a clean neutral background.
+   Overriding Bootstrap's CSS variables here re-themes every
+   .btn-primary, .badge, .card etc. across the whole app
+   without editing each individual template.
+   ========================================================== */
+
+:root {
+    --psp-red: #a6192e;
+    --psp-red-dark: #7d1322;
+    --psp-gold: #f2b705;
+    --psp-charcoal: #2b2b2b;
+    --psp-bg: #f5f6f8;
+
+    --bs-primary: var(--psp-red);
+    --bs-primary-rgb: 166, 25, 46;
+    --bs-danger: var(--psp-red);
+    --bs-danger-rgb: 166, 25, 46;
+    --bs-warning: var(--psp-gold);
+    --bs-warning-rgb: 242, 183, 5;
+    --bs-dark: var(--psp-charcoal);
+    --bs-dark-rgb: 43, 43, 43;
+    --bs-border-radius: 0.6rem;
+    --bs-border-radius-sm: 0.4rem;
+    --bs-border-radius-lg: 0.9rem;
+}
+
+body {
+    background: var(--psp-bg);
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ---------- Navbars ---------- */
+.navbar.bg-dark {
+    background: linear-gradient(90deg, var(--psp-charcoal), #1a1a1a) !important;
+    border-bottom: 3px solid var(--psp-gold);
+}
+.navbar-brand img {
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,.4));
+}
+.navbar .nav-link {
+    font-weight: 500;
+}
+.navbar .nav-link:hover {
+    color: var(--psp-gold) !important;
+}
+
+/* ---------- Cards ---------- */
+.card {
+    border: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+.card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    font-weight: 500;
+    border-radius: var(--bs-border-radius-sm);
+}
+.btn-primary {
+    --bs-btn-bg: var(--psp-red);
+    --bs-btn-border-color: var(--psp-red);
+    --bs-btn-hover-bg: var(--psp-red-dark);
+    --bs-btn-hover-border-color: var(--psp-red-dark);
+}
+.btn i {
+    margin-right: 4px;
+}
+
+/* ---------- Tables ---------- */
+.table thead {
+    background: var(--psp-charcoal);
+    color: #fff;
+}
+.table {
+    background: #fff;
+    border-radius: var(--bs-border-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* ---------- Badges ---------- */
+.badge.bg-success { background-color: #1f8a4c !important; }
+.badge.bg-secondary { background-color: #6c757d !important; }
+
+/* ---------- Dashboard stat cards ---------- */
+.stat-card {
+    border-left: 5px solid var(--psp-gold);
+}
+.stat-card i {
+    font-size: 1.8rem;
+    color: var(--psp-red);
+}
+
+/* ---------- Login pages ---------- */
+.auth-card {
+    border-radius: var(--bs-border-radius-lg);
+}
+.auth-card .logo {
+    height: 70px;
+}
+
+/* ---------- Exam-taking screen ---------- */
+.exam-topbar {
+    background: linear-gradient(90deg, var(--psp-charcoal), #1a1a1a);
+    border-bottom: 3px solid var(--psp-gold);
+}
+#timer {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 1px;
+}
+.nav-btn.current-question {
+    outline: 3px solid var(--psp-gold);
+}
+.question-block h6 {
+    color: #6c757d;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+/* ---------- Small utility ---------- */
+.text-brand { color: var(--psp-red) !important; }

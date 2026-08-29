@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Form - PSP CBT Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div th:replace="~{admin/fragments :: nav}"></div>
+<div class="container" style="max-width: 600px;">
+    <h3 class="mb-3" th:text="${student.id} != null ? 'Edit Student' : 'Add Student'">Add Student</h3>
+    <div th:if="${error}" class="alert alert-danger py-2" th:text="${error}"></div>
+    <form method="post" th:action="@{/admin/students/save}" th:object="${student}">
+        <input type="hidden" th:field="*{id}">
+        <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" th:field="*{fullName}" class="form-control" required>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">School (e.g. ICT)</label>
+                <input type="text" th:field="*{school}" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Department (e.g. CSE)</label>
+                <input type="text" th:field="*{department}" class="form-control" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Programme (e.g. ND)</label>
+                <input type="text" th:field="*{programme}" class="form-control" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Admission Year (e.g. 24)</label>
+                <input type="text" th:field="*{admissionYear}" class="form-control" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Serial Number (e.g. 0004)</label>
+                <input type="text" th:field="*{serialNumber}" class="form-control" required>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" th:field="*{email}" class="form-control">
+        </div>
+        <p class="text-muted small">The matriculation number is generated automatically as
+            PSP/School/Department/Programme/Year/Serial.</p>
+        <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Save</button>
+        <a href="/admin/students" class="btn btn-link">Cancel</a>
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
