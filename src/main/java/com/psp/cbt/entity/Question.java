@@ -15,8 +15,7 @@ public class Question {
     @JoinColumn(name = "exam_id", nullable = false)
     private Exam exam;
 
-    @Lob
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String questionText;
 
     @Column(nullable = false) private String optionA;
